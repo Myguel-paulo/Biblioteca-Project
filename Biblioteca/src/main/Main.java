@@ -43,8 +43,8 @@ public class Main {
 			switch (escolha) {
 				case 1:
 					
-					System.out.printf("Livro:%s%nAutor:%s%n", livro_1.nome, livro_1.autor);
-					if(livro_1.imprestimo == true) {
+					System.out.printf("Livro:%s%nAutor:%s%n", livro_1.getNome(), livro_1.getAutor());
+					if(livro_1.getImprestimo() == true) {
 						System.out.println("Disponivel");
 					
 					}else {
@@ -54,8 +54,8 @@ public class Main {
 					
 					//-------------------------------------------------
 					
-					System.out.printf("Livro:%s%nAutor:%s%n", livro_2.nome, livro_2.autor);
-					if(livro_2.imprestimo == true) {
+					System.out.printf("Livro:%s%nAutor:%s%n", livro_2.getNome(), livro_2.getAutor());
+					if(livro_2.getImprestimo() == true) {
 						System.out.println("Disponivel");
 					
 					}else {
@@ -64,8 +64,8 @@ public class Main {
 					System.out.println("===============");
 					//-------------------------------------------------
 					
-					System.out.printf("Livro:%s%nAutor:%s%n", livro_3.nome, livro_3.autor);
-					if(livro_3.imprestimo == true) {
+					System.out.printf("Livro:%s%nAutor:%s%n", livro_3.getNome(), livro_3.getAutor());
+					if(livro_3.getImprestimo() == true) {
 						System.out.println("Disponivel");
 					
 					}else {
@@ -97,11 +97,11 @@ public class Main {
 					
 					//================ Emprestimo livro 1 ================
 					
-					if(livro_1.nome.toLowerCase().equals(escolhaLivro.toLowerCase())){
+					if(livro_1.getNome().toLowerCase().equals(escolhaLivro.toLowerCase())){
 						
-						System.out.printf("%s: ", livro_1.nome);
+						System.out.printf("%s: ", livro_1.getNome());
 						//DISPONIBILIDADE DO LIVRO VERDADEIRA
-						if(livro_1.imprestimo == true) {
+						if(livro_1.getImprestimo() == true) {
 							
 							System.out.println("DISPONIVEL");
 							System.out.print("Pegar emprestimo s/n: ");
@@ -164,13 +164,13 @@ public class Main {
 					
 					//================ Emprestimo livro 2 ================	
 					
-					else if(livro_2.nome.toLowerCase().equals(escolhaLivro.toLowerCase())) {
+					else if(livro_2.getNome().toLowerCase().equals(escolhaLivro.toLowerCase())) {
 						
-						 System.out.printf("%s: ", livro_2.nome);
+						 System.out.printf("%s: ", livro_2.getNome());
 						 
 						 
 						//DISPONIBILIDADE DO LIVRO VERDADEIRA
-						 if(livro_2.imprestimo == true) {
+						 if(livro_2.getImprestimo() == true) {
 							 
 							 System.out.println("DISPONIVEL");
 							 System.out.print("Pegar emprestimo s/n: ");
@@ -233,13 +233,13 @@ public class Main {
 					
 					//================ Emprestimo livro 3 ================	
 					
-					else if(livro_3.nome.toLowerCase().equals(escolhaLivro.toLowerCase())) {
+					else if(livro_3.getNome().toLowerCase().equals(escolhaLivro.toLowerCase())) {
 						
-						 System.out.printf("%s: ", livro_3.nome);
+						 System.out.printf("%s: ", livro_3.getNome());
 						 
 						 
 						//DISPONIBILIDADE DO LIVRO VERDADEIRA
-						 if(livro_3.imprestimo == true) {
+						 if(livro_3.getImprestimo() == true) {
 							 
 							 System.out.println("DISPONIVEL");
 							 System.out.print("Pegar emprestimo s/n: ");
@@ -329,14 +329,14 @@ public class Main {
 						String name = "";
 						
 						if(i == 1){
-							valor = livro_1.imprestimo;
-							name = livro_1.nome;
+							valor = livro_1.getImprestimo();
+							name = livro_1.getNome();
 						}else if(i == 2) {
-							valor = livro_2.imprestimo;
-							name = livro_2.nome;
+							valor = livro_2.getImprestimo();
+							name = livro_2.getNome();
 						}else if(i == 3) {
-							valor = livro_3.imprestimo;
-							name = livro_3.nome;
+							valor = livro_3.getImprestimo();
+							name = livro_3.getNome();
 						}
 						
 						if(!valor) {
@@ -357,7 +357,17 @@ public class Main {
 							
 						System.out.println("==================");	 
 					}
-					
+					else {
+						try {
+					        
+							Thread.sleep(5000); 
+							
+						 } catch (InterruptedException e) {
+							 System.out.println("A pausa foi interrompida.");
+						 }
+							
+						System.out.println("==================");	
+					}
 					
 					// ================ Escolha de devolucão ================
 					
