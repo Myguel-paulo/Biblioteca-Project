@@ -26,6 +26,7 @@ public class Main {
 		
 		int sairDecisao = 0;
 		while(sairDecisao == 0) {
+			System.out.println("---------------------------------------------");
 			System.out.println("1. Lista de Livros");
 			System.out.println("2. Emprestar livro");
 			System.out.println("3. Devolver livro");
@@ -69,29 +70,48 @@ public class Main {
 					
 					String escolhaLivro = sc.nextLine().toLowerCase();
 					
-		
+					boolean contaLivro = false;
 					for(Livros l : livros) {
-		
-						if(l.getNome().toLowerCase().equals(escolhaLivro)) {
-							
-							System.out.println(l);
-							imprestimo++;
-							
-						}
 						
+						if(l.getNome().toLowerCase().equals(escolhaLivro)) {
+							System.out.println();
+							contaLivro = true;
+							System.out.println(l);
+							
+							if(l.getImprestimo().equals("Disponivel")) {
+								System.out.print("Deseja pegar o imprestimo (s/n) : ");
+								char decisao = sc.next().charAt(0);
+								sc.nextLine();
+								if(decisao == 's') {
+									l.imprestar();
+									System.out.println("Obrigado pela preferência, tenha um otimo dia e boa leitura...");
+								}
+									
+							}
+							
+							else if(l.getImprestimo().equals("Indisponivel")) {
+								System.out.println("O livro está INDISPONIVEL, tente-novamente mais tarde");
+							}
+							
+							imprestimo++;
+						}
+					}
+					if(contaLivro == false) {
+						System.out.println("Livro não encontrado");
+						imprestimo++;
 					}
 					
-					System.out.println("\n-----------------------------------------------");
+					System.out.println();
 					try {
 				        
 						Thread.sleep(5000); 
-						
+					
 					 } catch (InterruptedException e) {
 						 System.out.println("A pausa foi interrompida.");
 					 }
 					
-					}
 					
+					}
 					break;
 					
 				case 3:
