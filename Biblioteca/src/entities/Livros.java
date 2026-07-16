@@ -30,8 +30,8 @@ public class Livros {
 		this.autor = autor;
 	}
 	
-	public Boolean getImprestimo() {
-		return imprestimo;
+	public String getImprestimo(){
+		return (imprestimo) ? "Disponivel" : "Indisponivel";
 	}
 	
 	public void imprestar() {
@@ -39,5 +39,12 @@ public class Livros {
 	}
 	public void devolucao() {
 		imprestimo = true;
+	}
+	
+	public String toString() {
+		return "Nome: "+ nome + "\n" + 
+				"Autor: " + autor + "\n" +
+				"Disponibilidade: " + getImprestimo() +
+				"\n-----------------------";
 	}
 }
